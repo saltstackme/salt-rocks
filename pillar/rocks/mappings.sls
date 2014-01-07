@@ -43,14 +43,12 @@ rmap:
 
         ntp: /etc/ntp.conf
         snmp: /etc/snmp/snmpd.conf
+        emacs: /root/.emacs
 
     {%- elif grains['os_family'] == 'Debian' %}
 
         ntp-conf: /etc/ntp.conf
         snmp-conf: /etc/snmp/snmp.conf
-
-    {%- else -%}
-        
         emacs: /root/.emacs
 
-    {%- endif- %}
+    {%- endif %}
