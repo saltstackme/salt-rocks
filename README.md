@@ -1,4 +1,4 @@
 salt-rocks
 ==========
 
-Generic salt formulas that can be used in other projects
+Generic salt formulas that can be used in other projects.
