@@ -4,7 +4,7 @@ include:
 snmp-configure:
   file:
     - managed
-    - name: {{ pillar['rocks']['package']['snmp-conf'] }}
+    - name: {{ pillar['rmap']['package']['snmp'] }}
     - source: salt://snmp/files/snmp.conf
     - require:
       - pkg: snmp-install

@@ -2,7 +2,7 @@ ntp:
   pkg:
     - installed
   service:
-    - name: {{ pillar['rocks']['package']['ntp'] }}
+    - name: {{ pillar['rmap']['package']['ntp'] }}
     - running
     - enable: True
     - require:

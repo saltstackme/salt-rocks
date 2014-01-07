@@ -3,6 +3,6 @@ include:
 
 snmp-disable:
   service:
-    - name: {{ pillar['rocks']['package']['snmp-service'] }}
+    - name: {{ pillar['rmap']['package']['snmp'] }}
     - dead
     - enable: False

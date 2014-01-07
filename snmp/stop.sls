@@ -1,4 +1,4 @@
 snmp-stop:
   service:
-    - name: {{ pillar['rocks']['package']['snmp-service'] }}
+    - name: {{ pillar['rmap']['service']['snmp'] }}
     - dead

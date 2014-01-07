@@ -1,7 +1,7 @@
 cron:
   pkg:
     - installed
-    - name: {{ pillar['rocks']['package']['cron-pkg'] }}
+    - name: {{ pillar['rmap']['package']['cron'] }}
   service:
     - running
-    - name: {{ pillar['rocks']['package']['cron-service'] }}
+    - name: {{ pillar['rmap']['service']['cron'] }}
