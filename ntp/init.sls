@@ -1,3 +1,3 @@
 include:
-  - ntp.packages
-  - ntp.configuration
+  - ntp.install
+  - ntp.configure

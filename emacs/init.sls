@@ -1,3 +1,3 @@
 include:
-  - emacs.packages
-  - emacs.configuration
+  - emacs.install
+  - emacs.configure

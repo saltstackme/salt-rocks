@@ -1,3 +1,3 @@
 include:
-  - screen.packages
-  - screen.configuration
+  - screen.install
+  - screen.configure

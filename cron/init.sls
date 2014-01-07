@@ -1,3 +1,3 @@
 include:
-  - cron.packages
-  - cron.configuration
+  - cron.install
+  - cron.configure
