@@ -1,4 +1,4 @@
 emacs-install:
   pkg:
-  	- name: emacs
+    - name: emacs
     - installed
