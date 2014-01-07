@@ -49,4 +49,8 @@ rmap:
         ntp-conf: /etc/ntp.conf
         snmp-conf: /etc/snmp/snmp.conf
 
-    {%- endif %}
+    {%- else -%}
+        
+        emacs: /root/.emacs
+
+    {%- endif- %}
