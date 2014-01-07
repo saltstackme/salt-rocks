@@ -6,6 +6,7 @@ rocks:
         libevent: libevent
         libevent-devel: libevent-devel
         ntp: ntpd
+        ntp-conf: /etc/ntp.conf
         snmp-pkg: net-snmp
         snmp-service: snmpd
         snmp-conf: /etc/snmp/snmpd.conf
@@ -19,6 +20,7 @@ rocks:
         libevent: libevent-dev
         libevent-devel: libevent-dev
         ntp: ntp
+        ntp-conf: /etc/ntp.conf
         snmp-pkg: snmpd
         snmp-service: snmpd
         snmp-conf: /etc/snmp/snmp.conf
