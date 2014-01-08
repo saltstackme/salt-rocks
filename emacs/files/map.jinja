@@ -1,0 +1,4 @@
+{% set emacs = salt['grains.filter_by']({
+    'Debian': {'pkg': 'emacs', 'conf': '/etc/emacs/emacs.conf'},
+    'RedHat': {'pkg': 'emacs', 'conf': '/etc/emacs/emacs.conf'}
+}, merge=salt['pillar.get']('emacs:lookup')) %}
