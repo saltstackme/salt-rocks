@@ -1,7 +1,7 @@
 {% from "snmp/files/map.jinja" import snmp with context %}
 
 include:
-  - snmp-install
+  - snmp.install
 
 snmp-configure:
   file:
