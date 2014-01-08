@@ -1,0 +1,4 @@
+{% set cron = salt['grains.filter_by']({
+    'Debian': {'pkg': 'cron', 'srv': 'cron', 'conf': ''},
+    'RedHat': {'pkg': 'crontabs', 'srv': 'crond', 'conf': ''}
+}, merge=salt['pillar.get']('cron:lookup')) %}
