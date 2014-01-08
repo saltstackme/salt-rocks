@@ -1,4 +1,4 @@
-{% from "files/map.jinja" import snmp with context %}
+{% from "snmp/files/map.jinja" import snmp with context %}
 
 snmp-install:
   pkg:
