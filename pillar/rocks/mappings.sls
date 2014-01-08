@@ -46,8 +46,8 @@ rmap:
 
     {%- elif grains['os_family'] == 'Debian' %}
 
-        ntp-conf: /etc/ntp.conf
-        snmp-conf: /etc/snmp/snmp.conf
+        ntp: /etc/ntp.conf
+        snmp: /etc/snmp/snmp.conf
         emacs: /root/.emacs
 
     {%- endif %}
