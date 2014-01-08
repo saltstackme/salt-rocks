@@ -1,1 +1,4 @@
-# no configuration yet
+include:
+  - ntp.install
+
+# toDo: have configuration file
