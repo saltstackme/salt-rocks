@@ -1,9 +1,11 @@
+{% from "files/map.jinja" import snmp with context %}
+
 include:
   - snmp.configure
 
 snmp-start:
   service:
-    - name: {{ pillar['rmap']['service']['snmp'] }}
+    - name: {{ snmp.srv }}
     - running
     - enable: True
     - reload: True

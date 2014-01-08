@@ -1,4 +1,9 @@
+{% from "files/map.jinja" import snmp with context %}
+
+include:
+  - snmp.configure
+
 snmp-stop:
   service:
-    - name: {{ pillar['rmap']['service']['snmp'] }}
+    - name: {{ snmp.srv }}
     - dead

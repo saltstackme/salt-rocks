@@ -1,4 +1,6 @@
+{% from "files/map.jinja" import snmp with context %}
+
 snmp-install:
   pkg:
     - installed
-    - name: {{ pillar['rmap']['package']['snmp'] }}
+    - name: {{ snmp.pkg }}
