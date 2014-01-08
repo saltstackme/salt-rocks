@@ -6,7 +6,6 @@ rmap:
         libevent: libevent
         libevent-devel: libevent-devel
         ntp: ntpd
-        ntp: /etc/ntp.conf
         snmp: net-snmp
         cron: crontabs
 
