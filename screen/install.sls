@@ -1,4 +1,4 @@
 screen-install:
   pkg:
-  	- name: screen
+    - name: screen
     - installed
