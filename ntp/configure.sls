@@ -1,3 +1,5 @@
+{% from "ntp/files/map.jinja" import ntp with context %}
+
 include:
   - ntp.install
 
