@@ -1,4 +1,4 @@
-{% from "emacs/files/map.jinja" import snmp with context %}
+{% from "emacs/files/map.jinja" import emacs with context %}
 
 include:
   - emacs.install
