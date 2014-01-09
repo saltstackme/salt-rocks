@@ -1,0 +1,48 @@
+#!/bin/bash
+
+CHANGED=0
+OUT=""
+RETCODE=0
+if [[ -e /usr/bin/pip || -e /usr/local/bin/pip ]]
+then
+    if [ -e $(which uwsgi) ]
+    then
+        if [ "$(uwsgi --plugin-list 2>&1 | grep graylog2)" != "graylog2" ]
+        then
+            UWSGI_EMBED_PLUGINS="graylog2" pip install uwsgi --upgrade
+            if [ $? == 0 ]
+            then
+                CHANGED=1
+                OUT="uwsgi installed, plugin added."
+            else
+                OUT="failed to install uwsgi!"
+                RECODE=1
+            fi
+        else
+            OUT="uwsgi installed, plugin installed"
+        fi
+    else
+        UWSGI_EMBED_PLUGINS="graylog2" pip install uwsgi
+        if [ $? == 0 ]
+        then
+            CHANGED=1
+            OUT="uwsgi missing, installed with plugin."
+        else
+            OUT="failed to install uwsgi!"
+            RECODE=1
+        fi
+    fi
+else
+    OUT="pip missing!"
+    RECODE=1
+fi
+
+echo ""
+if [ $CHANGED == 1 ]
+then
+    echo "changed=yes comment='${OUT}'"
+    exit 0
+else
+    echo "changed=no comment='${OUT}'"
+    exit $RETCODE
+fi
