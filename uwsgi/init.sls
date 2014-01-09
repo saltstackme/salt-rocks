@@ -1,2 +1,2 @@
 include:
-  - install.sls
+  - uwsgi.install
