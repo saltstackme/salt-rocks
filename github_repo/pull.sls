@@ -3,14 +3,13 @@
 include:
   - github_repo.user
 
-git-install:
-  pkg.installed
+pull-source: 
+  pkg:
+    - installed
     - name: git
-
-pull-source:
   git:
-    - name: {{ github_repo.url }}
     - latest
+    - name: {{ github_repo.url }}
     - user: {{ github_repo.username }}
     - rev: {{ github_repo.rev }}
     - target: {{ github_repo.target }}
@@ -20,4 +19,4 @@ pull-source:
       - file: github-key-file
     {% endif %}
     require:
-      - pkg: git-install
+      - pkg: pull-source
