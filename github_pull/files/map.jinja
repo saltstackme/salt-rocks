@@ -1,9 +1,10 @@
-{% set github_user = {
-    'name': 'my_user', 
-    'fullname': 'github user',
-    'mail': 'test@test.com',
-    'group': 'my_group',
-    'uid': 1001,
-    'gid': 1001
-    } 
-%}
+{% set github_user = salt['grains.filter_by']({
+    'Linux': {
+        'name': 'my_user', 
+        'fullname': 'github user',
+        'mail': 'test@test.com',
+        'group': 'my_group',
+        'uid': 1001,
+        'gid': 1001
+    }
+}, grain='kernel', merge=salt['pillar.get']('github_user')) %}

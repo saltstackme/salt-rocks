@@ -1,9 +1,4 @@
-# supports one user
-# create private key file under files/{{user.name}}.id_rsa
-
 {% from "github_pull/files/map.jinja" import github_user with context %}
-
-{% set user = salt['pillar.get']('github_user', github_user) %}
 
 {{ user.group }}:
   group:
