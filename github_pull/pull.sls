@@ -1,4 +1,4 @@
-{% from "github_pull/files/map.jinja" import github_user with context %}
+{% from "github_pull/files/map.jinja" import github_repo with context %}
 
 include:
   - github_pull.user
