@@ -8,4 +8,4 @@ nginx-start:
     - enable: True
     - reload: True
     - watch:
-        - file: nginx-configure
+      - file: nginx-configure
