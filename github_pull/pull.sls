@@ -1,16 +1,14 @@
+{% from "github_pull/files/map.jinja" import github_user with context %}
+
 include:
   - github_pull.user
 
-{#
-billing_queues-source:
+pull-source:
   git:
-    - name: 'git@github.com:rackerlabs/billing_queues.git'
+    - name: {{ github_repo.url }}
     - latest
-    - rev: {{ pillar['billing_queues_version'] }}
-    - target: /tmp/billing_queues
-    - identity: /root/.ssh/id_devopsatlpull_rsa
+    - rev: {{ github_repo.rev }}
+    - target: {{ github_repo.target }}
+    - identity: /home/{{ github_repo.username }}/.ssh/{{ github_repo.username }}.id_rsa
     - require:
-      - file: /root/.ssh/id_devopsatlpull_rsa
-      - cmd: billing_queues-cleanup
-      - pip: billing_queues-cleanup
-#}
+      - file: github-key-file
