@@ -1,0 +1,4 @@
+{% set memcached = salt['grains.filter_by']({
+    'Debian': {'pkg': 'memcached', 'srv': 'memcached', 'conf': '/etc/memcached.conf'},
+    'RedHat': {'pkg': 'memcached', 'srv': 'memcached', 'conf': '/etc/memcached.conf'}
+}, merge=salt['pillar.get']('memcached:lookup')) %}
