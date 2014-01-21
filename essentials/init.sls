@@ -1,5 +1,6 @@
 include:
-  - emacs.init
-  - screen.init
-  - ntp.init
-  - cron.init
+  - emacs
+  - screen
+  - ntp
+  - cron
+  - python
