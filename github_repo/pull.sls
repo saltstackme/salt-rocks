@@ -11,7 +11,7 @@ pull-source:
     - rev: {{ github_repo.rev }}
     - target: {{ github_repo.target }}
     {% if github_repo.private %}
-    - identity: /home/{{ github_repo.username }}/.ssh/{{ github_repo.username }}.id_rsa
+    - identity: /home/{{ github_repo.username }}/.ssh/{{ github_repo.rsa_key }}
     - require:
       - file: github-key-file
     {% endif %}

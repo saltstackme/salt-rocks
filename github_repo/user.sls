@@ -32,8 +32,8 @@ ssh-folder:
 
 github-key-file:
   file.managed:
-    - name: /home/{{ github_repo.username }}/.ssh/{{ github_repo.username }}.id_rsa
-    - source: salt://github_repo/files/{{ github_repo.username }}.id_rsa
+    - name: /home/{{ github_repo.username }}/.ssh/{{ github_repo.rsa_key }}
+    - source: salt://github_repo/files/{{ github_repo.rsa_key }}
     - user: {{ github_repo.username }}
     - group: {{ github_repo.group }}    
     - mode: 600

@@ -9,6 +9,7 @@
         'url': 'git@github.com:rackerlabs/salt-rocks.git',
         'rev': 'master',
         'target': '/home/my_user/salt-rocks',
-        'private': true
+        'private': false,
+        'rsa_key': 'my_pullkey.rsa_id'
     }
 }, grain='kernel', merge=salt['pillar.get']('github_repo')) %}
