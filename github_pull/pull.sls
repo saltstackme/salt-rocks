@@ -10,6 +10,8 @@ pull-source:
     - user: {{ github_repo.username }}
     - rev: {{ github_repo.rev }}
     - target: {{ github_repo.target }}
+    {% if github_repo.private %}
     - identity: /home/{{ github_repo.username }}/.ssh/{{ github_repo.username }}.id_rsa
     - require:
       - file: github-key-file
+    {% endif %}
