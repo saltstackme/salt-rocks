@@ -1,4 +1,4 @@
-{% from "memcacehd/files/map.jinja" import memcached with context %}
+{% from "memcached/files/map.jinja" import memcached with context %}
 
 memcached-install:
   pkg:

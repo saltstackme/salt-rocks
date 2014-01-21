@@ -9,4 +9,4 @@ memcached-configure:
     - name: {{ memcached.conf }}
     - source: salt://memcached/files/memcached.conf
     - require:
-      - pkg: memchaced-install
+      - pkg: memcached-install
