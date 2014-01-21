@@ -9,7 +9,7 @@ user-group:
 user-name:
   user:
     - present
-    - name: {{ github_repo.username }}:
+    - name: {{ github_repo.username }}
     - fullname: {{ github_repo.fullname }}
     - shell: /bin/bash
     - uid: {{ github_repo.uid }}
