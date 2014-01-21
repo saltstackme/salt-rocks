@@ -7,9 +7,8 @@ uwsgi-install:
     - pkgs:
       - uwsgi
       - uwsgi-plugin-python
-
-uwsgitop:
   pip:
+    - name: uwsgitop
     - installed
     - require:
       - pkg: uwsgi-install
