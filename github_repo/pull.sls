@@ -18,5 +18,5 @@ pull-source:
     - require:
       - file: github-key-file
     {% endif %}
-    require:
+    - require:
       - pkg: pull-source
