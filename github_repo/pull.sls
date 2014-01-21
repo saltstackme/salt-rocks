@@ -3,6 +3,10 @@
 include:
   - github_repo.user
 
+git-install:
+  pkg.installed
+  name: git
+
 pull-source:
   git:
     - name: {{ github_repo.url }}
@@ -15,3 +19,5 @@ pull-source:
     - require:
       - file: github-key-file
     {% endif %}
+    require:
+      - pkg: git-install
