@@ -1,6 +1,6 @@
 {% set python_dev = salt['grains.filter_by']({
     'Debian': {'pkg': 'python-dev', 'srv': '', 'conf': ''},
-    'RedHat': {'pkg': 'python-dev', 'srv': '', 'conf': ''}
+    'RedHat': {'pkg': 'python-devel', 'srv': '', 'conf': ''}
 }, merge=salt['pillar.get']('python_dev:lookup')) %}
 
 {% set python_pip = salt['grains.filter_by']({
@@ -10,5 +10,5 @@
 
 {% set build_essential = salt['grains.filter_by']({
     'Debian': {'pkg': 'build-essential', 'srv': '', 'conf': ''},
-    'RedHat': {'pkg': 'build-essential', 'srv': '', 'conf': ''}
+    'RedHat': {'pkg': 'make', 'srv': '', 'conf': ''}
 }, merge=salt['pillar.get']('build_essential:lookup')) %}
