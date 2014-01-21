@@ -1,7 +1,7 @@
 {% from "github_repo/files/map.jinja" import github_repo with context %}
 
 include:
-  - github_pull.user
+  - github_repo.user
 
 pull-source:
   git:
