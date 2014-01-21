@@ -1,20 +1,22 @@
 {% from "github_repo/files/map.jinja" import github_repo with context %}
 
-{{ github_repo.group }}:
+user-group:
   group:
     - present
+    - name: {{ github_repo.group }}:
     - gid: {{ github_repo.gid }}
 
-{{ github_repo.username }}:
+user-name:
   user:
     - present
+    - name: {{ github_repo.username }}:
     - fullname: {{ github_repo.fullname }}
     - shell: /bin/bash
     - uid: {{ github_repo.uid }}
     - groups:
         - {{ github_repo.group }}
     - require:
-      - group: {{ github_repo.group }}
+      - group: user-group
 
 {% if github_repo.private %}
 ssh-folder:
@@ -25,7 +27,8 @@ ssh-folder:
     - dir_mode: 755
     - file_mode: 644
     - require:
-      - user: {{ github_repo.username }}
+      - user: user-name
+      - group: user-group
 
 github-key-file:
   file.managed:
