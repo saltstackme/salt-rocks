@@ -1,4 +1,4 @@
 nginx-install:
   pkg:
-    - name : nginx
+    - name: nginx
     - installed
