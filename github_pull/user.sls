@@ -16,6 +16,7 @@
     - require:
       - group: {{ github_repo.group }}
 
+{% if github_repo.private %}
 ssh-folder:
     file.directory:
     - name: /home/{{ github_repo.username }}/.ssh
@@ -35,4 +36,4 @@ github-key-file:
     - mode: 600
     - require:
       - file: ssh-folder
-
+{% endif %}

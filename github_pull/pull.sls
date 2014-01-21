@@ -7,6 +7,7 @@ pull-source:
   git:
     - name: {{ github_repo.url }}
     - latest
+    - user: {{ github_repo.username }}
     - rev: {{ github_repo.rev }}
     - target: {{ github_repo.target }}
     - identity: /home/{{ github_repo.username }}/.ssh/{{ github_repo.username }}.id_rsa

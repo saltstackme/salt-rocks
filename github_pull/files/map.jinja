@@ -8,6 +8,7 @@
         'gid': 1001,
         'url': 'git@github.com:rackerlabs/salt-rocks.git',
         'rev': 'master',
-        'target': '/home/my_user/salt-rocks',        
+        'target': '/home/my_user/salt-rocks',
+        'private': true
     }
 }, grain='kernel', merge=salt['pillar.get']('github_repo')) %}
