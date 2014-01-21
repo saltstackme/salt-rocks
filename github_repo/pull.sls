@@ -5,7 +5,7 @@ include:
 
 git-install:
   pkg.installed
-  name: git
+    - name: git
 
 pull-source:
   git:
