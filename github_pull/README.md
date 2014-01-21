@@ -3,7 +3,7 @@
 - Create private key files under `github_pull/files/{{ github_user.name }}.id_rsa`
 - Define username on one of these places
   - in `github_pull/files/map.jinja`
-  - in pillar
+  - in pillar `pillar/github_user.sls` (can be any pillar file for the environment)
 
 ## map.jinja example
 ```
