@@ -12,4 +12,4 @@ uwsgitop:
   pip:
     - installed
     - require:
-      - pkg: uwsgi-installer
+      - pkg: uwsgi-install
