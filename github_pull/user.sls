@@ -1,34 +1,24 @@
 {% from "github_pull/files/map.jinja" import github_user with context %}
 
-{{ user.group }}:
+{{ github_user.group }}:
   group:
     - present
-    - gid: {{ user.gid }}
+    - gid: {{ github_user.gid }}
 
 
-{{ user.name }}:
+{{ github_user.name }}:
   user:
     - present
-    - fullname: {{ user.fullname }}
+    - fullname: {{ github_user.fullname }}
     - shell: /bin/bash
-    - uid: {{ user.uid }}
+    - uid: {{ github_user.uid }}
     - groups:
-        - {{ user.group }}
+        - {{ github_user.group }}
     - require:
-      - group: {{ user.group }}
+      - group: {{ github_user.group }}
   ssh_auth:
     - present
-    - user: {{ user.name }}
-    - source: salt://github_pull/files/{{ user.name }}.id_rsa
+    - user: {{ github_user.name }}
+    - source: salt://github_pull/files/{{ github_user.name }}.id_rsa
     - require:
-      - user: {{ user.name }}
-
-{#
-github_user:
-    name: marconi
-    fullname: marconi github user
-    mail: test@test.com
-    group: marconi
-    uid: 1001
-    gid: 1001
-#}
+      - user: {{ github_user.name }}
