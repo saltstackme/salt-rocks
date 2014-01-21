@@ -3,7 +3,7 @@
 user-group:
   group:
     - present
-    - name: {{ github_repo.group }}:
+    - name: {{ github_repo.group }}
     - gid: {{ github_repo.gid }}
 
 user-name:
