@@ -12,7 +12,7 @@
 %}
 
 
-{% set user = salt['pillar.get']('github_user', github_user) %}
+{% set user = salt['pillar.get']('github_user', 'github_user') %}
 
 {{ user.group }}:
   group:

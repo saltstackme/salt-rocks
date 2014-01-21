@@ -1,6 +1,7 @@
 include:
   - github_pull.user
 
+{#
 billing_queues-source:
   git:
     - name: 'git@github.com:rackerlabs/billing_queues.git'
@@ -12,3 +13,4 @@ billing_queues-source:
       - file: /root/.ssh/id_devopsatlpull_rsa
       - cmd: billing_queues-cleanup
       - pip: billing_queues-cleanup
+#}
