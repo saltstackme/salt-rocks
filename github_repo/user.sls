@@ -1,4 +1,4 @@
-{% from "github_pull/files/map.jinja" import github_repo with context %}
+{% from "github_repo/files/map.jinja" import github_repo with context %}
 
 {{ github_repo.group }}:
   group:
@@ -30,7 +30,7 @@ ssh-folder:
 github-key-file:
   file.managed:
     - name: /home/{{ github_repo.username }}/.ssh/{{ github_repo.username }}.id_rsa
-    - source: salt://github_pull/files/{{ github_repo.username }}.id_rsa
+    - source: salt://github_repo/files/{{ github_repo.username }}.id_rsa
     - user: {{ github_repo.username }}
     - group: {{ github_repo.group }}    
     - mode: 600
