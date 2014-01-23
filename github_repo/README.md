@@ -19,7 +19,8 @@
         'rev': 'master',
         'target': '/home/my_user/salt-rocks',
         'private': false,
-        'rsa_key': 'my_pullkey.rsa_id'
+        'rsa_key': 'my_pullkey.rsa_id',
+        'rsa_key_path': 'github_repo/files'
     }
 }, grain='kernel', merge=salt['pillar.get']('github_repo')) %}
 ```
@@ -27,18 +28,18 @@
 ## pillar example
 ```
 github_repo:
-    'username': 'my_user'
-    'fullname': 'github user'
-    'mail': 'test@test.com'
-    'group': 'my_group'
-    'uid': 1001
-    'gid': 1001
-    'url': 'git@github.com:rackerlabs/salt-rocks.git'
-    'rev': 'master'
-    'target': '/home/my_user/salt-rocks'
-    'private': false
-    'rsa_key': 'my_pullkey.rsa_id
-
+    username: my_user
+    fullname: github user
+    mail: test@test.com
+    group: my_group
+    uid: 1001
+    gid: 1001
+    url: git@github.com:rackerlabs/salt-rocks.git
+    rev: master
+    target: /home/my_user/salt-rocks
+    private: false
+    rsa_key: my_pullkey.rsa_id
+    rsa_key_path: github_repo/files
 ```
 
 ## ToDo
