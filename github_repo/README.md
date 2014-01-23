@@ -1,11 +1,13 @@
 # How To
 
-- Create private key files under `github_pull/files/{{ github_user.name }}.id_rsa`
+- Create private key files under `github_repo/files/{{ github_user.name }}.id_rsa`
+  - Or under a different path indicated with `rsa_key_path`
 - Define username on one of these places
-  - in `github_pull/files/map.jinja`
-  - in pillar `pillar/github_user.sls` (can be any pillar file for the environment)
+  - in `github_repo/files/map.jinja`
+  - in pillar `pillar/rocks.sls` (can be any pillar file for the environment)
+    - create a key named `github_repo` example below.
 
-## map.jinja example
+## map.jinja example (github_repo/files/map.jinja)
 ```
 {% set github_repo = salt['grains.filter_by']({
     'Linux': {
@@ -25,7 +27,7 @@
 }, grain='kernel', merge=salt['pillar.get']('github_repo')) %}
 ```
 
-## pillar example
+## pillar example (pillar/rocks.sls)
 ```
 github_repo:
     username: my_user
