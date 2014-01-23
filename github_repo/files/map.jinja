@@ -11,5 +11,6 @@
         'target': '/home/my_user/salt-rocks',
         'private': false,
         'rsa_key': 'my_pullkey.rsa_id'
+        'rsa_key_path': 'github_repo/files'
     }
 }, grain='kernel', merge=salt['pillar.get']('github_repo')) %}
