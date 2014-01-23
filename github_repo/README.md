@@ -1,4 +1,4 @@
-# How To
+# How To Use github_repo formula
 
 - Create private key files under `github_repo/files/{{ github_user.name }}.id_rsa`
   - Or under a different path indicated with `rsa_key_path`
