@@ -1,10 +1,10 @@
 # How To Use github_repo formula
 
-- Create private key files under `github_repo/files/{{ github_user.name }}.id_rsa`
+- Create private key files under `your_forumula/files/{{ github_user.rsa_key }}`
   - Or under a different path indicated with `rsa_key_path`
-- Define username on one of these places
+- Define key:value pairs on one of these places
   - in `github_repo/files/map.jinja`
-  - in pillar `pillar/rocks.sls` (can be any pillar file for the environment)
+  - in pillar `your_env/pillar/rocks.sls` (can be any pillar file for the environment)
     - create a key named `github_repo` example below.
 
 ## map.jinja example (github_repo/files/map.jinja)
@@ -22,7 +22,7 @@
         'target': '/home/my_user/salt-rocks',
         'private': false,
         'rsa_key': 'my_pullkey.rsa_id',
-        'rsa_key_path': 'github_repo/files'
+        'rsa_key_path': 'my_formula/files'
     }
 }, grain='kernel', merge=salt['pillar.get']('github_repo')) %}
 ```
@@ -41,7 +41,7 @@ github_repo:
     target: /home/my_user/salt-rocks
     private: false
     rsa_key: my_pullkey.rsa_id
-    rsa_key_path: github_repo/files
+    rsa_key_path: my_formula/files
 ```
 
 ## ToDo
