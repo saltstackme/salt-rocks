@@ -11,16 +11,23 @@ uwsgi-installer:
     - name: /usr/local/bin/uwsgi-pip-wrapper
     - stateful: true
     - require:
-      - pkg: mypkgs
       - file: /usr/local/bin/uwsgi-pip-wrapper
       - pkg: uwsgi-pkg-uninstalled
+      - pkg: uwsgi-requirements
 
 uwsgi-pkg-uninstalled:
   pkg:
-    - absent
+    - removed
     - pkgs:
       - uwsgi
+      - uwsgi-core
       - uwsgi-plugin-python
+
+uwsgi-requirements:
+  pkg:
+    - installed
+    - pkgs:
+      - zlib1g-dev
 
 uwsgitop-install:
   pip:
