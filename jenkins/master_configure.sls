@@ -8,6 +8,11 @@ jenkins_public_key:
     - name: su jenkins -c "ssh-keygen -f /var/lib/jenkins/.ssh/id_rsa -t rsa -N ''"
     - unless: test -f /var/lib/jenkins/.ssh/id_rsa.pub
 
+jenkins_key_to_github:
+  github.add_key:
+    - name: Jenkins server key for {{ grains['id'] }}
+    - keypath: /var/lib/jenkins/.ssh/id_rsa.pub
+
 set_public_key_grain:
   cmd.wait:
     - name: salt-call grains.setval jenkins_pub_key "`cat /var/lib/jenkins/.ssh/id_rsa.pub | cut -d' ' -f 2`"
