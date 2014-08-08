@@ -23,4 +23,22 @@ jenkins-user:
     - comment: jenkins
     - require:
       - user: jenkins-user
+
+/home/jenkins/.ssh/id_rsa:
+  file.managed:
+    - user: jenkins
+    - group: jenkins
+    - mode: 600
+    - source: salt://jenkins/files/id_rsa
+    - template: jinja
+    - require:
+      - user: jenkins-user
 {%- endfor %}
+
+git-preauth:
+  cmd.run:
+    - name: ssh -T git@github.com
+    - user: jenkins
+    - group: jenkins
+    - require:
+      - file: /home/jenkins/.ssh/id_rsa

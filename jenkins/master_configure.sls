@@ -14,6 +14,12 @@ set_public_key_grain:
     - watch:
       - cmd: jenkins_public_key
 
+set_private_key_grain:
+  cmd.wait:
+    - name: salt-call grains.setval jenkins_priv_key -- "`cat /var/lib/jenkins/.ssh/id_rsa`"
+    - watch:
+      - cmd: jenkins_public_key
+
 {% from "jenkins/files/pluginlist.jinja" import pluginlist with context %}
 {% for plugin in pluginlist %}
 {{ plugin }}:
