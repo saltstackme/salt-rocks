@@ -1,0 +1,14 @@
+{% from "cassandra/files/map.jinja" import cassandra with context %}
+{%- set seeds = [] %}
+{%- for seed, values in salt['mine.get']('G@cassandra_seed:True and G@cassandra_project:' + grains.cassandra_project, 'network.interfaces', expr_form='compound').items() %}
+{%-   do seeds.append(values['eth0']['inet'][0]['address'])  %}
+{%- endfor %}
+{% set cassandra = salt['grains.filter_by']({
+    'Linux': { 
+      'seeds': {{ seeds|join(",") }},
+      'internal_ip': {{ salt['network.ip_addrs']('eth0') }},
+      'cassandra_project': 'default',
+      'clustername': 'Default Cluster'
+      }
+   }, grain='kernel', merge=salt['pillar.get']('cassandra')) 
+%}
