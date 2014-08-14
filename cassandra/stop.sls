@@ -1,6 +1,6 @@
 
 include:
-  - cassandra_server.install
+  - cassandra.install
 
 cassandra-stop:
   service:

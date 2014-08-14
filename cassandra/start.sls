@@ -1,5 +1,5 @@
 include:
-  - cassandra_server.install
+  - cassandra.install
 
 cassandra-start:
   service:

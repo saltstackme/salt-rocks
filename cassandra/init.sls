@@ -1,8 +1,8 @@
 include:
-  - cassandra_server.install
-  - cassandra_server.hosts
-  - cassandra_server.configure
-  - cassandra_server.start
+  - cassandra.install
+  - cassandra.hosts
+  - cassandra.configure
+  - cassandra.start
 
 exclude:
   - sls: hosts.all

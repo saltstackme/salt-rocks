@@ -1,7 +1,7 @@
 {% from "cassandra/files/map.jinja" import cassandra with context %}
 
 include:
-  - cassandra_server.install
+  - cassandra.install
 
 
 cassandra_config:
