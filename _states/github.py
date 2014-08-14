@@ -6,7 +6,7 @@ def __virtual__():
     if 'github.keys' in __salt__:
         return 'github'
    
-    return None
+    return False
 
 def add_key(name, 
             keypath, 

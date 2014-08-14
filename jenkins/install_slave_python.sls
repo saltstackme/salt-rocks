@@ -2,6 +2,14 @@
 mine.update:
   module.run
 
+# We need to make sure the custom state module is loaded on the minion before we can run the github states.
+saltutil.sync_all:
+  module.run
+
+# This pip module is required for the github state module to work.
+github3.py:
+  pip.installed
+
 build-tools:
   pkg.installed:
     - pkgs:

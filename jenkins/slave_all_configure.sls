@@ -14,7 +14,7 @@ jenkins-user:
     - shell: /bin/bash
 
 # Seed the authorized_keys with the public key from the Jenkins master
-{%- for value in salt['mine.get']('jenkins_type:master', 'grains.items', expr_form='grain').values() %}
+{%- for value in salt['mine.get']('G@jenkins_type:master and G@environment_id:' + grains['environment_id'], 'grains.items', expr_form='compound').values() %}
 {{ value['jenkins_pub_key'] }}:
   ssh_auth:
     - present
@@ -37,7 +37,7 @@ jenkins-user:
 
 git-preauth:
   cmd.run:
-    - name: ssh -T git@github.com
+    - name: ssh -o StrictHostKeyChecking=no -T git@github.com
     - user: jenkins
     - group: jenkins
     - require:
