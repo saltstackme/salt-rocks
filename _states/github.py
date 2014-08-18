@@ -14,14 +14,17 @@ def add_key(name,
             password=None,
             token=None):
 
-
     ret = {'name': name,
            'changes': {},
            'result': True,
            'comment': 'Key {0} is already present'.format(name)}
 
-    key_name = __salt__['github.add_key'](keypath, name, user, password, token)
-    if key_name:
+    result = __salt__['github.add_key'](keypath, name, user, password, token)
+    if result == 'added':
         ret['comment'] = 'Key {0} successfully added'.format(name)
-        return ret
+        ret['changes'] = { name: 'added' }
+    elif result == 'failed':
+        ret['comment'] = 'Key {0} failed to add'.format(name)
+        ret['result'] = False
+
     return ret

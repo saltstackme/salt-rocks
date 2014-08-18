@@ -62,15 +62,21 @@ def add_key(keypath, title=None, user=None, password=None, token=None):
 
     log.debug("Attempting to add key with title %s" % title)
 
+    for key in gh.iter_keys():
+        if key.title == title:
+            log.debug("A key with title '%s' already exists." % title)
+            return 'exists'
+
     key_file = open(keypath, 'r').read()
 
     try:
         key = gh.create_key(title, key_file)
         if key:
             log.info("Key %s created" % title)
+            return 'added'
         else:
             log.error("Key addition for %s failed!" % title)
-        return key.title
+            return 'failed'
     except models.GitHubError:
-        log.debug("Key addition for %s failed" % title)
-        return None
+        log.error("Key addition for %s failed" % title)
+        return 'failed'

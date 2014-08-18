@@ -37,7 +37,7 @@ jenkins-user:
 
 git-preauth:
   cmd.run:
-    - name: ssh -o StrictHostKeyChecking=no -T git@github.com
+    - name: ssh -o StrictHostKeyChecking=no -T git@github.com || true
     - user: jenkins
     - group: jenkins
     - require:
