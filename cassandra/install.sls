@@ -31,4 +31,5 @@ cassandra-init:
   cmd.run:
     - name: "rm -rf /var/lib/cassandra/*;touch /etc/cassandra/initialized"
     - unless: "stat /etc/cassandra/initialized"
-
+    - require:
+      - pkg: cassandra-install
