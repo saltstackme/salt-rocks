@@ -19,3 +19,11 @@ cassandra_topology:
     - template: jinja
     - require:
       - pkg: cassandra-install
+
+cassandra_gossipfile:
+  file.managed:
+    - name: /etc/cassandra/cassandra-rackdc.properties
+    - source: salt://cassandra/files/cassandra-rackdc.properties
+    - template: jinja
+    - require:
+      - pkg: cassandra-install

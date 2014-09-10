@@ -1,7 +1,7 @@
 #
 # adds all servers in the same environment
 #
-{%- for key, value in salt['mine.get']('environment_id:' + grains['environment_id'], 'grains.items', expr_form='grain').items() %}
+{%- for key, value in salt['mine.get']('project:' + grains['project'], 'grains.items', expr_form='grain').items() %}
 {%-    if grains['id'] not in value['id'] %}
 {%-        set old_ip = salt['hosts.get_ip'](value['id']) %}
 {%-        if old_ip != "" %}
