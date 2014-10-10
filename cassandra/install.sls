@@ -23,13 +23,3 @@ cassandra-install:
       - pkg: java-installed
       - pkgrepo: cassandra-repo
 
-# Initialize System, we need to start with a blank database
-cassandra-init:
-  service.dead:
-    - name: cassandra
-    - unless: "stat /etc/cassandra/initialized"
-  cmd.run:
-    - name: "rm -rf /var/lib/cassandra/*;touch /etc/cassandra/initialized"
-    - unless: "stat /etc/cassandra/initialized"
-    - require:
-      - pkg: cassandra-install
