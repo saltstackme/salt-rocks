@@ -1,0 +1,5 @@
+[zenoss-core]
+name=zenoss-core
+baseurl=http://60cb4783eb832e262d7f-35a4a90356eccd276633e7f5ec7d5c8d.r13.cf2.rackcdn.com
+enabled=0
+gpgcheck=0
