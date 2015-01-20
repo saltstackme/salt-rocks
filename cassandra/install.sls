@@ -4,7 +4,9 @@ apt-python-pkg:
 
 java-installed:
   pkg.installed:
-    - name: openjdk-7-jre
+    - pkgs:
+      - openjdk-7-jre
+      - libjna-java
 
 cassandra-repo:
   pkgrepo.managed:
